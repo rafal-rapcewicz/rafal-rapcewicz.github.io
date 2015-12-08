@@ -69,7 +69,6 @@
     <Content Include="App\controllers\mainController.js" />
     <Content Include="App\directives\codeTabDirective.js" />
     <Content Include="App\directives\codeTabsDirective.js" />
-    <Content Include="App\original.js" />
     <Content Include="App\templates\csharp1.html" />
     <Content Include="App\templates\css1.html" />
     <Content Include="App\templates\html1.html" />
