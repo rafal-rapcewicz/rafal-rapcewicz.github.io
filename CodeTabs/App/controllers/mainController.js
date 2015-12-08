@@ -7,41 +7,30 @@
         this.init = function () {
             this.code = [
                 {
-                    language: "html",
-                    source:
-                        [
-                            '<p>Hello World!</p>',
-                            '<p>Hello World2!</p>'
-                        ].join('\n')
+                    url: '/App/templates/html1.html',
+                    language: "html"
                 },
                 {
-                    language: "css",
-                    source: 'p:after { content: "Hello World"; }'
+                    url: '/App/templates/css1.html',
+                    language: "css"
                 },
                 {
+                    url: '/App/templates/javascript1.html',
                     title: "JS",
-                    language: "javascript",
-                    source: "alert('Hello World!');"
+                    language: "javascript"
                 },
                 {
-                    language: "php",
-                    source: '<!--?php echo="Hello World!" ?-->'
+                    url: '/App/templates/php1.html',
+                    language: "php"
                 },
                 {
-                    language: "java",
-                    source: 'System.out.println("Hello World!");'
+                    url: '/App/templates/java1.html',
+                    language: "java"
                 },
                 {
+                    url: '/App/templates/csharp1.html',
                     title: "C#",
-                    language: "csharp",
-                    source:
-                        [
-                            'Console.WriteLine("Hello World!")',
-                            'for(int i = 1; i < 10; i++',
-                            '{',
-                            '   Console.WriteLine(i);',
-                            '}'
-                        ].join('\n')
+                    language: "csharp"
                 }
             ];
         };

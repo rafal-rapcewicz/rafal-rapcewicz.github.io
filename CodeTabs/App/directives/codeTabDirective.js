@@ -8,6 +8,7 @@
         scope: {
             title: '@',
             language: '@',
+            url: '@',
             source: '='
         },
         link: function (scope, element, attrs, tabsCtrl) {
@@ -15,7 +16,8 @@
         },
         template:
           '<div class="codetab-content" ng-class="{active: selected}">' +
-          '  <hljs language="{{language | lowercase}}" source="source"><ng-transclude></ng-transclude></hljs>' +
+          '<div ng-include="url"></div>' +
+          //'  <hljs language="{{language | lowercase}}" source="source"></hljs>' +
           '</div>',
         replace: true
     };
