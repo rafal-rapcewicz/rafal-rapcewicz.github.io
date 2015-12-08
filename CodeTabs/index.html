@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/main.min.css" rel="stylesheet" />
+    <!-- personal preference: github theme -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+
+    <script src="App/app.js"></script>
+    <script src="App/controllers/mainController.js"></script>
+    <script src="App/directives/codeTabsDirective.js"></script>
+    <script src="App/directives/codeTabDirective.js"></script>
+
+</head>
+<body>
+    <div ng-app="app" ng-controller="mainController as vm" class="container">
+        <h1>Source Code Boxes Using Angular</h1>
+        <h2>Tabbed Code Boxes</h2>
+
+        <codetabs>
+            <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source"></codetab>
+        </codetabs>
+    </div>
+
+</body>
+</html>

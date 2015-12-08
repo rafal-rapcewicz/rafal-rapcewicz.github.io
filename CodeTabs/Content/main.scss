@@ -1,0 +1,316 @@
+﻿/*@import "compass/css3";*/
+
+//http://codepen.io/real-napster/pen/kBrva/
+@import url(http://fonts.googleapis.com/css?family=Roboto:500);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+.container { margin: 0 5%; }
+body { font-family: sans-serif; }
+
+$gray: #3d3d3d;
+
+$colors: (
+  "html"   #e44d26,
+  "css"    #0270ba,
+  "javascript" #f7df1e,
+  "php"    #6082bb,
+  "java"   #f89820, //#5382A1
+  "csharp" #68217a
+);
+
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.codetabs-header {
+  & > ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    @extend %clearfix;
+
+    & > li {
+      display: block;
+      float: left;
+
+      & > a {
+        display: block;
+        padding: 6px 16px;
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+
+        &:hover, &:focus {
+          background-color: lighten($gray, 5%);
+        }
+      }
+
+      &.active > a {
+        &, &:hover, &:focus {
+          cursor: default;
+          background-color: darken($gray, 5%);
+          
+          &:before {
+            content: "";
+            bottom: -5px;
+            left: calc(50% - 6px);
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid darken($gray, 5%);
+          }
+        }
+      }
+      @each $item in $colors {
+        &.codebox-#{nth($item, 1)}.active > a {
+          &, &:hover, &:focus {
+            background-color: nth($item, 2);
+            
+            &:before {
+              border-top-color: nth($item, 2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.codebox {
+  margin-bottom: 16px;
+}
+
+.codebox-header, .codetabs-header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  //border-radius: 6px 6px 0 0;
+  background: lighten($gray, 10%);
+}
+
+.codebox-header {
+  padding: 6px 16px;
+  
+  @each $item in $colors {
+    &.codebox-#{nth($item, 1)} {
+      background-color: nth($item, 2);
+    }
+  }
+}
+
+.codebox-content {
+  padding: 16px;
+  font-family: Inconsolata, monospaced;
+  font-size: 14px;
+  color: #fff;
+  background-color: $gray;
+  //border-radius: 0 0 6px 6px;
+
+  pre {
+    margin: 0;
+  }
+  
+  .codetab-content {
+    display: none;
+    &.active { display: block; }
+  }
+}
+
+/*
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
+*/
+
+/*.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #232323;
+  color: #e6e1dc;
+  -webkit-text-size-adjust: none;
+}*/
+
+.hljs-comment,
+.hljs-javadoc,
+.hljs-shebang {
+  color: #bc9458;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.ruby .hljs-function .hljs-keyword,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title,
+.method,
+.hljs-list .hljs-title {
+  color: #c26230;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.tex .hljs-command,
+.asciidoc .hljs-link_label,
+.markdown .hljs-link_label {
+  color: #a5c261;
+}
+
+.hljs-subst {
+  color: #519f50;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-tag .hljs-title,
+.hljs-doctype,
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.input_number {
+  color: #e8bf6a;
+}
+
+.hljs-identifier {
+  color: #d0d0ff;
+}
+
+.hljs-class .hljs-title,
+.hljs-type,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc,
+.hljs-dartdoc {
+  text-decoration: none;
+}
+
+.hljs-constant,
+.hljs-name {
+  color: #da4939;
+}
+
+
+.hljs-symbol,
+.hljs-built_in,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-symbol .hljs-identifier,
+.asciidoc .hljs-link_url,
+.markdown .hljs-link_url,
+.hljs-attribute {
+  color: #6d9cbe;
+}
+
+.asciidoc .hljs-link_url,
+.markdown .hljs-link_url {
+  text-decoration: underline;
+}
+
+
+
+.hljs-params,
+.hljs-variable,
+.clojure .hljs-attribute {
+  color: #d0d0ff;
+}
+
+.css .hljs-tag,
+.hljs-rule .hljs-property,
+.hljs-pseudo,
+.tex .hljs-special {
+  color: #cda869;
+}
+
+.css .hljs-class {
+  color: #9b703f;
+}
+
+.hljs-rule .hljs-keyword {
+  color: #c5af75;
+}
+
+.hljs-rule .hljs-value {
+  color: #cf6a4c;
+}
+
+.css .hljs-id {
+  color: #8b98ab;
+}
+
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
+  color: #9b859d;
+}
+
+.hljs-preprocessor,
+.hljs-preprocessor *,
+.hljs-pragma {
+  color: #8996a8 !important;
+}
+
+.hljs-hexcolor,
+.css .hljs-value .hljs-number {
+  color: #a5c261;
+}
+
+.hljs-title,
+.hljs-decorator,
+.css .hljs-function {
+  color: #ffc66d;
+}
+
+.diff .hljs-header,
+.hljs-chunk {
+  background-color: #2f33ab;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.diff .hljs-change {
+  background-color: #4a410d;
+  color: #f8f8f8;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.7;
+}
