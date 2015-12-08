@@ -3,7 +3,7 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <link href="Content/main.min.css" rel="stylesheet" />
+    <link href="Content/main.min.css" rel="stylesheet"/>
     <!-- personal preference: github theme -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
@@ -15,6 +15,8 @@
     <script src="App/directives/codeTabsDirective.js"></script>
     <script src="App/directives/codeTabDirective.js"></script>
 
+    <link rel="import" href="App/templates/HtmlPage1.html"/>
+
 </head>
 <body>
     <div ng-app="app" ng-controller="mainController as vm" class="container">
@@ -24,6 +26,14 @@
         <codetabs>
             <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source"></codetab>
         </codetabs>
+
+        <div hljs include="'compile-me'" compile="true" language="sql"></div>
+
+        <!--<script type="text/ng-template" id="compile-me">
+            SELECT * FROM dbo.Users WHERE Email = 'eee'
+            AND Password = 'bbb'
+        </script>-->
+
     </div>
 
 </body>

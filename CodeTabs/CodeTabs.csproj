@@ -70,6 +70,7 @@
     <Content Include="App\directives\codeTabDirective.js" />
     <Content Include="App\directives\codeTabsDirective.js" />
     <Content Include="App\original.js" />
+    <Content Include="App\templates\HtmlPage1.html" />
     <Content Include="Content\main.css">
       <DependentUpon>main.scss</DependentUpon>
     </Content>
