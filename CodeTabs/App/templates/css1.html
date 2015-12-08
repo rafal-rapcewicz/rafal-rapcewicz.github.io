@@ -1,5 +1,18 @@
-﻿<div hljs include="'css1'" compile="true" language="{{language | lowercase}}"></div>
+﻿<div hljs include="'{{name}}'" compile="true" language="{{language | lowercase}}"></div>
 
-<script type="text/ng-template" id="css1">
-    p:after { content: "Hello World"; }
+<script type="text/ng-template" id="{{name}}">
+    /* The animation code */
+    @keyframes example {
+        from {background-color: red;}
+        to {background-color: yellow;}
+    }
+
+    /* The element to apply the animation to */
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+    }
 </script>

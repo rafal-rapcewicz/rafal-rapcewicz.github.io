@@ -1,5 +1,17 @@
-﻿<div hljs include="'js1'" compile="true" language="{{language | lowercase}}"></div>
+﻿<div hljs include="'{{name}}'" compile="true" language="{{language | lowercase}}"></div>
 
-<script type="text/ng-template" id="js1">
-    alert('Hello World!');
+<script type="text/ng-template" id="{{name}}">
+    // ES6: Variables are concealed within the appropriate block scope
+    function fibonacci(n) {
+        let previous = 0;
+        let current = 1;
+
+        for(let i = 0; i < n; i += 1) { // Implicit block scope for the loop header
+            let temp = previous;
+            previous = current;
+            current = temp + current;
+        }
+
+        return current;
+    }
 </script>

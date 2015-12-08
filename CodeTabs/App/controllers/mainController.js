@@ -1,37 +1,51 @@
 ﻿(function () {
     "use strict";
 
+    var TEMPLATE_PATH = 'App/templates/',
+        TEMPLATE_EXTENSION = '.html';
+
+    function setUrl() {
+        this.url = TEMPLATE_PATH + this.name + TEMPLATE_EXTENSION;
+        return this;
+    };
+
     function MainController() {
         this.code = null;
 
         this.init = function () {
             this.code = [
                 {
-                    url: 'App/templates/html1.html',
-                    language: "html"
-                },
+                    name: 'html1',                    
+                    language: "html",
+                    init: setUrl
+                }.init(),
                 {
-                    url: 'App/templates/css1.html',
-                    language: "css"
-                },
+                    name: 'css1',
+                    language: "css",
+                    init: setUrl
+                }.init(),
                 {
-                    url: 'App/templates/javascript1.html',
+                    name: 'javascript1',
                     title: "JS",
-                    language: "javascript"
-                },
+                    language: "javascript",
+                    init: setUrl
+                }.init(),
                 {
-                    url: 'App/templates/php1.html',
-                    language: "php"
-                },
+                    name: 'php1',
+                    language: "php",
+                    init: setUrl
+                }.init(),
                 {
-                    url: 'App/templates/java1.html',
-                    language: "java"
-                },
+                    name: 'java1',
+                    language: "java",
+                    init: setUrl
+                }.init(),
                 {
-                    url: 'App/templates/csharp1.html',
+                    name: 'csharp1',
                     title: "C#",
-                    language: "csharp"
-                }
+                    language: "csharp",
+                    init: setUrl
+                }.init()
             ];
         };
         this.init();
