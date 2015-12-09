@@ -17,13 +17,20 @@
 
 </head>
 <body>
-    <div ng-app="app" ng-controller="mainController as vm" class="container">
-        <h1>Source Code Boxes Using Angular</h1>
-        <h2>Tabbed Code Boxes</h2>
-
-        <codetabs>
-            <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source" url="{{item.url}}"></codetab>
-        </codetabs>
+    <h1>Source Code Boxes Using Angular</h1>
+    <h2>Tabbed Code Boxes</h2>
+    <div ng-app="app">
+        <div ng-controller="mainController as vm" class="container">
+            <codetabs>
+                <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source" url="{{item.url}}"></codetab>
+            </codetabs>
+        </div>
+        
+        <div ng-controller="secoundController as vm" class="container">
+            <codetabs>
+                <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source" url="{{item.url}}"></codetab>
+            </codetabs>
+        </div>
 
     </div>
 
