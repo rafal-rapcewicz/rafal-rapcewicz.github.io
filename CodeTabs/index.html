@@ -26,6 +26,10 @@
                 <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source" url="{{item.url}}"></codetab>
                 <codetab title="{{vm.code[0].title}}" language="{{vm.code[0].language}}" source="vm.code[0].source" url="'App/templates/html1.html'"></codetab>
             </codetabs>
+            
+            <codetabs>
+                <codetab ng-repeat="item in vm.code2" title="{{item.title}}" language="{{item.language}}" source="item.source" url="{{item.url}}"></codetab>
+            </codetabs>
         </div>
         
         <div ng-controller="secoundController as vm" class="container">
