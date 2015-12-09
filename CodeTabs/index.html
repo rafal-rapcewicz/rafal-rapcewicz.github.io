@@ -24,6 +24,7 @@
         <div ng-controller="mainController as vm" class="container">
             <codetabs>
                 <codetab ng-repeat="item in vm.code" title="{{item.title}}" language="{{item.language}}" source="item.source" url="{{item.url}}"></codetab>
+                <codetab title="{{vm.code[0].title}}" language="{{vm.code[0].language}}" source="vm.code[0].source" url="{{vm.code[0].url}}"></codetab>
             </codetabs>
         </div>
         
