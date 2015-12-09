@@ -11,6 +11,7 @@
 
     function MainController() {
         this.code = null;
+        this.code2 = null;
 
         this.init = function () {
             this.code = [
@@ -35,6 +36,20 @@
                     language: "php",
                     init: setUrl
                 }.init(),
+                {
+                    name: 'java1',
+                    language: "java",
+                    init: setUrl
+                }.init(),
+                {
+                    name: 'csharp1',
+                    title: "C#",
+                    language: "csharp",
+                    init: setUrl
+                }.init()
+            ];
+            
+            this.code2 = [
                 {
                     name: 'java1',
                     language: "java",
