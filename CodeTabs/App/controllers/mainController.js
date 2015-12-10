@@ -4,67 +4,28 @@
     var TEMPLATE_PATH = 'App/templates/',
         TEMPLATE_EXTENSION = '.html';
 
-    function setUrl() {
-        this.url = TEMPLATE_PATH + this.name + TEMPLATE_EXTENSION;
-        return this;
-    };
+    function Course(name, language) {
+        this.name = name;
+        this.language = language;
+        this.url = TEMPLATE_PATH + name + TEMPLATE_EXTENSION;
+    }
 
-    function MainController() {
+    function MainController($http) {
+        var self = this;
         this.code = null;
         this.code2 = null;
 
         this.init = function () {
-            this.code = [
-                {
-                    name: 'html1',                    
-                    language: "html",
-                    init: setUrl
-                }.init(),
-                {
-                    name: 'css1',
-                    language: "css",
-                    init: setUrl
-                }.init(),
-                {
-                    name: 'javascript1',
-                    title: "JS",
-                    language: "javascript",
-                    init: setUrl
-                }.init(),
-                {
-                    name: 'php1',
-                    language: "php",
-                    init: setUrl
-                }.init(),
-                {
-                    name: 'java1',
-                    language: "java",
-                    init: setUrl
-                }.init(),
-                {
-                    name: 'csharp1',
-                    title: "C#",
-                    language: "csharp",
-                    init: setUrl
-                }.init()
-            ];
-            
-            this.code2 = [
-                {
-                    name: 'java1',
-                    language: "java",
-                    init: setUrl
-                }.init(),
-                {
-                    name: 'csharp1',
-                    title: "C#",
-                    language: "csharp",
-                    init: setUrl
-                }.init()
-            ];
+            $http.get('App/data/courses.json').success(function (response) {
+                self.code = response.first.map(function (x) { return new Course(x.name, x.language) });
+                self.code2 = response.secound.map(function (x) { return new Course(x.name, x.language) });
+            });
         };
+
         this.init();
     }
+
+    MainController.$inject = ['$http'];
 
     angular.module("app").controller("mainController", MainController);
 

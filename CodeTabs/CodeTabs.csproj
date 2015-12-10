@@ -83,6 +83,7 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="Content\main.scss" />
+    <Content Include="App\data\courses.json" />
     <None Include="compilerconfig.json" />
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
